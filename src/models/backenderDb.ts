@@ -11,7 +11,7 @@ import type { Backenders, ApiResponse } from '../types/backenderInterface.js'
 export const getBackendersDb = async (): Promise<ApiResponse<Backenders[]>> => {
 
 const { data, error } = await supabase
-    .from('backenders')
+    .from('Backenders')
     .select('*')
 
   if (error) return { success: false, error: error.message }
@@ -21,12 +21,12 @@ const { data, error } = await supabase
 export const registerBackenderDb = async (
   name: string,
   surname: string,
-  years_of_experience: Number,
+  years_of_experience: number,
   preference: string
 ): Promise<ApiResponse<Backenders>> => {
 
 const { data, error } = await supabase
-    .from('backenders')
+    .from('Backenders')
     .insert({  name, surname, years_of_experience, preference })
     .select()
     .single()
